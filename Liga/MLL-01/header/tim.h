@@ -3,26 +3,35 @@
 #include <string>
 #include <iostream>
 
+//Mutya Hazna(103012500046)
+
+
 using namespace std;
 
-struct ------------
+struct infoTim
 {
-    ------------
+    string idTim;
+    string namaTim;
+    string namaKapten;
+    int jumlahAnggota;
+    int poin;
+    int jumlahMenang;
 };
 
-typedef ------------ ------------;         // variabel alias untuk infor
-typedef  struct ------------ *------------;   // variabel alias untuk pointer
+typedef infoTim infotypeTim;         // variabel alias untuk infor
+typedef  struct elmTim *addressTim   // variabel alias untuk pointer
 
 // kerangka dari elemen list
-struct ------------
+struct elmTim
 {
-    ------------
+    infotypeTim info;
+    addressTim next;
 };
 
 // kerangka dari list
-struct ------------
+struct ListTim
 {
-    ------------ ------------;
+    addressTim first;
 };
 
 // pengecekan apakah list kosong
