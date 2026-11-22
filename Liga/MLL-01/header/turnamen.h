@@ -6,94 +6,101 @@
 
 using namespace std;
 
-struct ------------
+struct infoTurnamen
 {
-    ------------
+   string idTurnamen;
+   string nama;
+   string game;
+   string tanggal;
+   string lokasi;
 };
 
-typedef ------------ ------------;         // variabel alias untuk infor
-typedef  struct ------------ *------------;   // variabel alias untuk pointer
+typedef struct elmTurnamen *adrTurnamen;  // variabel alias untuk pointer
 
 // kerangka dari elemen list
-struct ------------
+struct elmTurnamen
 {
-    ------------
+   infotypeTurnamen info;
+   adrTurnamen next;
+   adrTurnamen prev;
+   listPartisipasi daftarPartisipasi;
 };
 
 // kerangka dari list
-struct ------------
+struct listTurnamen
 {
-    ------------
+   adrTurnamen first;
+   adrTurnamen last;
 };
 
 // pengecekan apakah list kosong
-------------;
+bool isEmptyTurnamen(listTurnamen l);
 /* I.S. list LM terdefinisi
    F.S. true jika list kosong dan false jika tidak kosong */
 
-------------;
+void createListTurnamen(listTurnamen &l);
 /* I.S. ~
    F.S. terbentuk list kosong */
 
 // manajemen memori
-------------;
+adrTurnamen alokasiTurnamen(infotypeTurnamen x);
 /* I.S. info mahasiswa x terdefinisi
    F.S. mengembalikan alamat elemen berisi x dengan prev/next NULL
         dan daftar KRS dalam keadaan kosong */
 
-------------;
-/* I.S. pointer P terdefinisi
+void dealokasiTurnamen(adrTurnamen &p);
+/* I.S. pointer p terdefinisi
    F.S. elemen mahasiswa dan seluruh elemen KRS relasinya di-dealokasi;
         elemen mata kuliah yang dirujuk tidak ikut dihapus */
 
 // pencarian sebuah elemen list
-------------;
+adrTurnamen findTurnamen(listTurnamen l, string idTurnamen);
 /* I.S. list LM dan NIM terdefinisi
    F.S. mengembalikan alamat elemen mahasiswa yang cocok atau NULL jika tidak ditemukan
 */
 
 // penambahan elemen *
-------------;
-/* I.S. terdefinisi list LM yang mungkin kosong dan elemen list P
-   F.S. menempatkan elemen beralamat P pada awal list */
+void insertFirstTurnamen(listTurnamen &l, adrTurnamen p);
+/* I.S. terdefinisi list LM yang mungkin kosong dan elemen list p
+   F.S. menempatkan elemen beralamat p pada awal list */
 
-------------;
-/* I.S. terdefinisi list LM yang mungkin kosong, elemen list P dan elemn list prec
-   F.S. menempatkan elemen beralamat P sesudah elemen beralamat Prec */
+void insertAfterTurnamen(listTurnamen &l, adrTurnamen prec, adrTurnamen p);
+/* I.S. terdefinisi list LM yang mungkin kosong, elemen list p dan elemn list prec
+   F.S. menempatkan elemen beralamat p sesudah elemen beralamat prec */
 
-------------;
-/* I.S. terdefinisi list LM yang mungkin kosong dan elemen list P
-   F.S. menempatkan elemen beralamat P pada akhir list */
+void insertLastTurnamen(listTurnamen &l, adrTurnamen p);
+/* I.S. terdefinisi list LM yang mungkin kosong dan elemen list p
+   F.S. menempatkan elemen beralamat p pada akhir list */
 
 // penghapusan sebuah elemen
-------------;
-/* I.S. terdefinisi list LM yang mungkin kosong dan elemen list P
-   F.S. P adalah alamat dari alamat elemen pertama list
+void deleteFirstTurnamen(listTurnamen &l, adrTurnamen &p);
+/* I.S. terdefinisi list LM yang mungkin kosong dan elemen list p
+   F.S. p adalah alamat dari alamat elemen pertama list
         yang akan dihapus dan elemen list selanjutnya akan menjadi
         elemenlist pertama atau tidak ada elemen list pertama*/
 
-------------;
-/* I.S. terdefinisi list LM yang mungkin kosong dan elemen list P
-   F.S. P adalah alamat dari alamat elemen terakhir list
+void deleteLastTurnamen(listTurnamen &l, adrTurnamen &p);
+/* I.S. terdefinisi list LM yang mungkin kosong dan elemen list p
+   F.S. p adalah alamat dari alamat elemen terakhir list
         yang akan dihapus dan elemen list sebelumnya akan menjadi
         elemenlist terakhir atau tidak ada elemen list terakhir */
 
-------------;
-/* I.S. terdefinisi list LM yang mungkin kosong, elemen list P dan elemn list prec
-   F.S. P adalah alamat dari alamat elemen list setelah prec
+void deleteAfterTurnamen(listTurnamen &l, adrTurnamen prec, adrTurnamen &p);
+/* I.S. terdefinisi list LM yang mungkin kosong, elemen list p dan elemn list prec
+   F.S. p adalah alamat dari alamat elemen list setelah prec
         yang akan dihapus dan elemen list setelah p akan terhubung
         langsung dengan prec atau tidak ada elemen list setelahnya */
 
-------------;
+void showAllurnamen(listTurnamen l);
 /* I.S. terdefinisi list LM yang mungkin kosong
    F.S. jika list tidak kosong menampilkan semua info yang ada pada list */
 
-------------;
+bool isTimReferenced(listTurnamen l, adrTim q);
 /* I.S. terdefinisi list mahasiswa dan alamat mata kuliah
         F.S. true jika mata kuliah masih direferensikan oleh KRS mahasiswa */
 
-------------;
+infotypeTurnamen inputDataTurnamen();
 /* I.S. ~
    F.S. meminta data mahasisswa dari user */
 
-#endif // MAHASISWA_H_INCLUDED
+#endif // TURNAMEN_H_INCLUDED
